@@ -51,7 +51,7 @@ public class Main extends Application
             @Override
             public void handle(MouseEvent e)
             {
-                int celsius = Integer.parseInt(textFieldGradCelsius.getText());
+                double celsius = Double.parseDouble(textFieldGradCelsius.getText());
                 double result = ((celsius * 1.8) + 32);
 
                 textFieldGradFahrenheit.setText(String.valueOf(result));
