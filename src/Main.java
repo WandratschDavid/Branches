@@ -1,8 +1,10 @@
 import javafx.application.Application;
+import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -43,6 +45,20 @@ public class Main extends Application
         Button convertCtoF = new Button("Convert C -> F");
         Button convertFtoC = new Button("Convert F -> C");
         box_main.getChildren().addAll(convertCtoF, convertFtoC);
+
+        EventHandler<MouseEvent> btn_handler_C_to_F = new EventHandler<MouseEvent>()
+        {
+            @Override
+            public void handle(MouseEvent e)
+            {
+                int celsius = Integer.parseInt(textFieldGradCelsius.getText());
+                double result = ((celsius * 1.8) + 32);
+
+                textFieldGradFahrenheit.setText(String.valueOf(result));
+            }
+        };
+
+        convertCtoF.addEventHandler(MouseEvent.MOUSE_CLICKED, btn_handler_C_to_F);
 
         Scene scene = new Scene(box_main);
         stage.setTitle("Temp. Converter");
