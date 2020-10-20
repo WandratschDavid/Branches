@@ -1,4 +1,6 @@
 import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 /**
@@ -17,6 +19,11 @@ public class Main extends Application
     @Override
     public void start(Stage stage)
     {
+        VBox box_main = new VBox();
 
+        Scene scene = new Scene(box_main);
+        stage.setTitle("Temp. Converter");
+        stage.setScene(scene);
+        stage.show();
     }
 }
